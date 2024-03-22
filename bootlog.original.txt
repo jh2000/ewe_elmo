@@ -1,0 +1,299 @@
+I (30) boot: ESP-IDF v4.3-dev-2586-g526f68239-dirty 2nd stage bootloader
+I (30) boot: compile time 02:15:14
+I (31) boot: chip revision: 1
+I (35) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+I (42) boot.esp32: SPI Speed      : 40MHz
+I (47) boot.esp32: SPI Mode       : DIO
+I (51) boot.esp32: SPI Flash Size : 8MB
+I (56) boot: Enabling RNG early entropy source...
+I (61) boot: Partition Table:
+I (65) boot: ## Label            Usage          Type ST Offset   Length
+I (72) boot:  0 nvs              WiFi data        01 02 00009000 00003000
+I (79) boot:  1 otadata          OTA data         01 00 0000c000 00002000
+I (87) boot:  2 phy_init         RF data          01 01 0000e000 00001000
+I (94) boot:  3 ota_0            OTA app          00 10 00010000 00180000
+I (102) boot:  4 ota_1            OTA app          00 11 00190000 00180000
+I (109) boot:  5 fctrydata        WiFi data        01 02 00310000 00003000
+I (117) boot:  6 storage          Unknown data     01 82 00313000 000ed000
+I (125) boot: End of partition table
+I (129) boot_comm: chip revision: 1, min. application chip revision: 0
+I (136) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=43ce0h (277728) map
+I (242) esp_image: segment 1: paddr=00053d08 vaddr=3ffb0000 size=04f30h ( 20272) load
+I (250) esp_image: segment 2: paddr=00058c40 vaddr=40080000 size=00400h (  1024) load
+I (251) esp_image: segment 3: paddr=00059048 vaddr=40080400 size=06fd0h ( 28624) load
+I (268) esp_image: segment 4: paddr=00060020 vaddr=400d0020 size=1128e8h (1124584) map
+I (665) esp_image: segment 5: paddr=00172910 vaddr=400873d0 size=0c030h ( 49200) load
+I (695) boot: Loaded app from partition at offset 0x10000
+I (696) boot: Disabling RNG early entropy source...
+I (707) cpu_start: Pro cpu up.
+I (707) cpu_start: Starting app cpu, entry point is 0x40080e80
+I (0) cpu_start: App cpu up.
+I (724) cpu_start: Pro cpu start user code
+I (724) cpu_start: cpu freq: 160000000
+I (724) cpu_start: Application information:
+I (728) cpu_start: Project name:     nanoBeemesPro
+I (734) cpu_start: App version:      v2.0-6-g991d7db-dirty
+I (740) cpu_start: Compile time:     Mar 24 2022 03:07:50
+I (746) cpu_start: ELF file SHA256:  619d49b78237c48d...
+I (752) cpu_start: ESP-IDF:          v4.3-dev-2586-g526f68239-dirty
+I (759) heap_init: Initializing. RAM available for dynamic allocation:
+I (766) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (772) heap_init: At 3FFBB4E0 len 00024B20 (146 KiB): DRAM
+I (778) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (785) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (792) heap_init: At 40093400 len 0000CC00 (51 KiB): IRAM
+I (798) spi_flash: detected chip: generic
+I (802) spi_flash: flash io: dio
+I (808) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+E (817) main: nanoBeemsPro V21-AZURE_IOT Ver: 1.0.032
+E (827) main: SPI flash size: 8388608
+I (827) storage: Checking storage partition size
+I (837) storage: Storage partition size: 970752 is OK
+I (837) main: device_base_init()
+Disabling DAC (25): 0
+E (847) main: Last boot reason: 0
+I (847) nvs: init_nvs()
+I (897) nvs: load_device_data()
+I (897) nvs: Count: UsedEntries = (9), FreeEntries = (369), AllEntries = (378)
+
+I (897) nvs: Readed from nvs Flash: serial number = <Elmos Seriennummer>
+I (907) nvs: Readed from nvs Flash: sharedKey = <azure key>
+I (917) nvs: Readed from nvs Flash: host = <azure endpunkt>
+I (927) nvs: Readed from nvs Flash: batchNumber =
+I (927) nvs: Count: UsedEntries = (200), FreeEntries = (178), AllEntries = (378)
+
+I (937) nvs: Readed from nvs ActiveState: 1
+I (947) nvs: Readed from nvs sendMeterValuesInterval: 0
+I (947) nvs: Readed from nvs sendStateInterval: 900
+I (957) nvs: Readed from nvs measurementInterval: 0
+I (957) nvs: Readed from nvs Flash: timeserver size = 13
+I (967) nvs: Readed from nvs Flash: timeserver  = pool.ntp.org
+I (967) dataStorage: Initializing SPIFFS
+I (1057) dataStorage: Partition size: total: 885026, used: 12550
+Opened database successfully
+CREATE TABLE IF NOT EXISTS data (tp INTEGER, usage REAL, delivery REAL);
+Operation done successfully
+Time taken: 68708
+SELECT COUNT(*) FROM data;
+SELECT COUNT(*) from data: 0
+Operation done successfully
+CREATE TABLE IF NOT EXISTS errors (id INTEGER PRIMARY KEY, tp INTEGER, error INTEGER);
+Operation done successfully
+Time taken: 7431
+SELECT COUNT(*) FROM errors;
+SELECT COUNT(*) from errors: 4
+Operation done successfully
+I (1177) dataStorage: Database ok
+I (1177) wifi_manager: Set STA IP String to: 0.0.0.0
+I (1177) obis: OBIS add to Meter from string:*.8.0
+I (1187) obis: OBIS conversion worked
+I (1187) obis: OBIS add to Meter from string:*.7.0
+I (1197) obis: OBIS conversion worked
+I (1207) time: Offline - Time is set, device.lastTimeSync = 0
+I (1217) system_api: Base MAC address is not set
+I (1217) system_api: read default base MAC address from EFUSE
+I (1237) wifi_init: rx ba win: 6
+I (1237) wifi_init: tcpip mbox: 32
+I (1237) wifi_init: udp mbox: 6
+I (1237) wifi_init: tcp mbox: 6
+I (1247) wifi_init: tcp tx win: 5744
+I (1247) wifi_init: tcp rx win: 5744
+I (1257) wifi_init: tcp mss: 1436
+I (1257) wifi_init: WiFi IRAM OP enabled
+I (1257) wifi_init: WiFi RX IRAM OP enabled
+W (1267) wifi_manager: Calculate MD5 for SSID and PW
+W (1277) wifi_manager: MD5 (first 10) from SerialNumer: <die Stellen 5-15 des Hashes der Seriennummer>
+AP SSID: Sensor_<die Stellen 1-4 des Hashes der Seriennummer>
+AP PWD: <die Stellen 5-15 des Hashes der Seriennummer>
+I (1897) wifi_manager: wifi_manager: Start DHCP client for STA interface. If not already running
+I (1897) phy_init: phy_version 4660,0162888,Dec 23 2020
+I (1997) wifi_manager: MESSAGE: ORDER_LOAD_AND_RESTORE_STA
+I (1997) wifi_manager: wifi_manager_load sizeof wifi_settings: 128
+I (1997) wifi_manager: SYSTEM_EVENT_STA_START
+I (2007) http_server: HTTP Server listening on 80/tcp
+I (2007) wifi_manager: wifi_manager_fetch_wifi_sta_config used: STA-id: 1
+I (2017) wifi_manager: wifi_manager_fetch_wifi_sta_config 1: ssid:<wlan ssid> password:<wlan passwort>
+I (2027) wifi_manager: wifi_manager_fetch_wifi_sta_config 2: ssid:<wlan ssid> password:<wlan passwort>
+I (2047) wifi_manager: wifi_manager_fetch_wifi_sta_config 3: ssid: password:
+I (2047) wifi_manager: wifi_manager_fetch_wifi_sta_config: ssid:<wlan ssid> password:<wlan passwort>
+I (2057) wifi_manager: wifi_manager_fetch_wifi_settings: SoftAP_ssid:Sensor_
+I (2067) wifi_manager: wifi_manager_fetch_wifi_settings: SoftAP_pwd:
+I (2077) wifi_manager: wifi_manager_fetch_wifi_settings: SoftAP_channel:1
+I (2087) wifi_manager: wifi_manager_fetch_wifi_settings: SoftAP_hidden (1 = yes) :0
+I (2087) wifi_manager: wifi_manager_fetch_wifi_settings: SoftAP_bandwidth (1 = 20MHz, 2 = 40MHz)1
+I (2097) wifi_manager: wifi_manager_fetch_wifi_settings: sta_only (0 = APSTA, 1 = STA when connected):1
+I (2107) wifi_manager: wifi_manager_fetch_wifi_settings: sta_power_save (1 = yes):0
+I (2117) wifi_manager: wifi_manager_fetch_wifi_settings: sta_static_ip (0 = dhcp client, 1 = static ip):0
+I (2127) wifi_manager: wifi_manager_fetch_wifi_settings: sta_static_ip_config: IP: 0.0.0.0 , GW: 0.0.0.0 , Mask: 0.0.0.0
+I (2137) wifi_manager: wifi_manager_fetch_wifi_settings: sta_ip_addr: 0.0.0.0
+I (2147) wifi_manager: wifi_manager_fetch_wifi_settings: sta_gw_addr: 0.0.0.0
+I (2157) wifi_manager: wifi_manager_fetch_wifi_settings: sta_netmask: 0.0.0.0
+I (2167) wifi_manager: Saved wifi found on startup. Will attempt to connect.
+I (2177) wifi_manager: MESSAGE: ORDER_CONNECT_STA
+I (2177) wifi_manager: connecting to given STA
+I (2187) wifi_manager: connecting....
+W (2237) main: Start AccessPoint at boot for short time -> timeout 3000
+W (2237) main: We have STA Settings (amount 2), wait until connected to one
+I (2277) board: setting up AP
+I (2277) wifi_manager: MESSAGE: ORDER_START_AP
+I (2277) wifi_manager: SYSTEM_EVENT_AP_START
+E (7867) main: reboot reason: power on reset
+I (7867) main: free heap size: 159904
+I (7867) main: free min heap size: 149500
+E (7867) main: Starting main loop
+I (7867) nvs: Save device state to flash
+I (7877) backend: setStatusToBackend to backend...
+I (8517) wifi_manager: SYSTEM_EVENT_STA_CONNECTED
+I (17207) esp_netif_handlers: sta ip: <geräteip>, mask: 255.255.255.0, gw: <gateway>
+I (17207) wifi_manager: SYSTEM_EVENT_STA_GOT_IP
+I (17207) wifi_manager: MESSAGE: EVENT_STA_GOT_IP
+I (17207) wifi_manager: Set STA IP String to: <geräteip>
+W (17217) main: We have wifi connection!
+I (17227) time: Getting time over NTP.
+I (17227) time: Initializing SNTP
+I (17227) time: Waiting for system time to be set... (1/25)
+I (17277) main: restarting azure  server, backend ...
+I (17277) time: Getting time over NTP.
+I (17277) time: Initializing SNTP
+I (17277) time: Waiting for system time to be set... (1/25)
+I (18737) time: Waiting for system time to be set... (2/25)
+I (18777) time: Waiting for system time to be set... (2/25)
+I (20237) time: Waiting for system time to be set... (3/25)
+I (20277) time: Waiting for system time to be set... (3/25)
+I (21737) time: Waiting for system time to be set... (4/25)
+I (21777) time: Waiting for system time to be set... (4/25)
+I (23237) time: Waiting for system time to be set... (5/25)
+I (23277) time: Waiting for system time to be set... (5/25)
+I (24737) time: Waiting for system time to be set... (6/25)
+I (24777) time: Waiting for system time to be set... (6/25)
+I (26237) time: Waiting for system time to be set... (7/25)
+I (26277) time: Waiting for system time to be set... (7/25)
+I (27737) time: Waiting for system time to be set... (8/25)
+I (27777) time: Waiting for system time to be set... (8/25)
+I (29237) time: Waiting for system time to be set... (9/25)
+I (29277) time: Waiting for system time to be set... (9/25)
+I (30737) time: Waiting for system time to be set... (10/25)
+I (30777) time: Waiting for system time to be set... (10/25)
+I (32237) time: Waiting for system time to be set... (11/25)
+I (32277) time: Waiting for system time to be set... (11/25)
+I (33737) time: Waiting for system time to be set... (12/25)
+I (33777) time: Waiting for system time to be set... (12/25)
+I (35237) time: Waiting for system time to be set... (13/25)
+I (35277) time: Waiting for system time to be set... (13/25)
+I (36737) time: Waiting for system time to be set... (14/25)
+I (36777) time: Waiting for system time to be set... (14/25)
+I (38237) time: Waiting for system time to be set... (15/25)
+I (38277) time: Waiting for system time to be set... (15/25)
+I (39737) time: Waiting for system time to be set... (16/25)
+I (39777) time: Waiting for system time to be set... (16/25)
+I (41237) time: Waiting for system time to be set... (17/25)
+I (41277) time: Waiting for system time to be set... (17/25)
+I (42737) time: Waiting for system time to be set... (18/25)
+I (42777) time: Waiting for system time to be set... (18/25)
+I (44237) time: Waiting for system time to be set... (19/25)
+I (44277) time: Waiting for system time to be set... (19/25)
+I (44577) http_server: line: GET /data HTTP/1.1
+I (44577) http_server: Host: <geräteip>
+Connection: close
+
+▒▒▒▒▒▒▒▒▒▒▒▒ﾭ▒xV▒▒▒?▒
+I (44577) http_server: wifi_manager_unlock_sta_ip_string...
+I (45737) time: Waiting for system time to be set... (20/25)
+I (45777) time: Waiting for system time to be set... (20/25)
+E (46647) http_server: http_server stack: 2552
+I (47237) time: Waiting for system time to be set... (21/25)
+I (47277) time: Waiting for system time to be set... (21/25)
+I (48737) time: Waiting for system time to be set... (22/25)
+I (48777) time: Waiting for system time to be set... (22/25)
+I (50237) time: Waiting for system time to be set... (23/25)
+I (50277) time: Waiting for system time to be set... (23/25)
+I (51737) time: Waiting for system time to be set... (24/25)
+I (51777) time: Waiting for system time to be set... (24/25)
+I (53237) time: Initializing SNTP
+I (53237) time: The current date/time is: Thu Jan  1 01:00:36 1970
+I (53237) time: Time is set, device.lastTimeSync was = 0, updating to now
+I (53277) time: Initializing SNTP
+I (53277) time: The current date/time is: Thu Jan  1 01:00:36 1970
+I (53277) time: Time is set, device.lastTimeSync was = 36, updating to now
+I (53277) backend: starting backend...
+I (53287) backend: free min heap size: 149500
+Initializing SNTP
+ESP platform sntp inited!
+Time is not set yet. Connecting to WiFi and getting time over NTP. timeinfo.tm_year:70
+Waiting for system time to be set... tm_year:0[times:1]
+Waiting for system time to be set... tm_year:70[times:2]
+Waiting for system time to be set... tm_year:70[times:3]
+Waiting for system time to be set... tm_year:70[times:4]
+Waiting for system time to be set... tm_year:70[times:5]
+Waiting for system time to be set... tm_year:70[times:6]
+Waiting for system time to be set... tm_year:70[times:7]
+Waiting for system time to be set... tm_year:70[times:8]
+Waiting for system time to be set... tm_year:70[times:9]
+Waiting for system time to be set... tm_year:70[times:10]
+Waiting for system time to be set... tm_year:70[times:11]
+Waiting for system time to be set... tm_year:70[times:12]
+Waiting for system time to be set... tm_year:70[times:13]
+Waiting for system time to be set... tm_year:70[times:14]
+Waiting for system time to be set... tm_year:70[times:15]
+Waiting for system time to be set... tm_year:70[times:16]
+Waiting for system time to be set... tm_year:70[times:17]
+Waiting for system time to be set... tm_year:70[times:18]
+Waiting for system time to be set... tm_year:70[times:19]
+Waiting for system time to be set... tm_year:70[times:20]
+Waiting for system time to be set... tm_year:70[times:21]
+Waiting for system time to be set... tm_year:70[times:22]
+Waiting for system time to be set... tm_year:70[times:23]
+Waiting for system time to be set... tm_year:70[times:24]
+Waiting for system time to be set... tm_year:70[times:25]
+Waiting for system time to be set... tm_year:70[times:26]
+I (104757) http_server: line: GET /data HTTP/1.1
+I (104757) http_server: Host: <geräteip>
+Connection: close
+
+▒▒▒▒▒▒▒▒▒▒▒▒ﾭ▒xV▒▒▒?!
+I (104757) http_server: wifi_manager_unlock_sta_ip_string...
+Waiting for system time to be set... tm_year:70[times:27]
+E (106827) http_server: http_server stack: 2552
+Waiting for system time to be set... tm_year:70[times:28]
+Waiting for system time to be set... tm_year:70[times:29]
+Waiting for system time to be set... tm_year:70[times:30]
+Waiting for system time to be set... tm_year:70[times:31]
+Waiting for system time to be set... tm_year:70[times:32]
+Waiting for system time to be set... tm_year:70[times:33]
+Waiting for system time to be set... tm_year:70[times:34]
+Waiting for system time to be set... tm_year:70[times:35]
+Waiting for system time to be set... tm_year:70[times:36]
+Waiting for system time to be set... tm_year:70[times:37]
+Waiting for system time to be set... tm_year:70[times:38]
+Waiting for system time to be set... tm_year:70[times:39]
+Waiting for system time to be set... tm_year:70[times:40]
+Waiting for system time to be set... tm_year:70[times:41]
+Waiting for system time to be set... tm_year:70[times:42]
+Waiting for system time to be set... tm_year:70[times:43]
+Waiting for system time to be set... tm_year:70[times:44]
+Waiting for system time to be set... tm_year:70[times:45]
+Waiting for system time to be set... tm_year:70[times:46]
+Waiting for system time to be set... tm_year:70[times:47]
+Waiting for system time to be set... tm_year:70[times:48]
+Waiting for system time to be set... tm_year:70[times:49]
+Waiting for system time to be set... tm_year:70[times:50]
+Waiting for system time to be set... tm_year:70[times:51]
+Waiting for system time to be set... tm_year:70[times:52]
+Waiting for system time to be set... tm_year:70[times:53]
+Waiting for system time to be set... tm_year:70[times:54]
+Waiting for system time to be set... tm_year:70[times:55]
+Waiting for system time to be set... tm_year:70[times:56]
+I (163937) http_server: line: GET /data HTTP/1.1
+I (163937) http_server: Host: <geräteip>
+Connection: close
+
+▒▒▒▒▒▒▒▒▒▒▒▒ﾭ▒xV▒▒▒?4
+I (163937) http_server: wifi_manager_unlock_sta_ip_string...
+Waiting for system time to be set... tm_year:70[times:57]
+E (166007) http_server: http_server stack: 2552
+Waiting for system time to be set... tm_year:70[times:58]
+Waiting for system time to be set... tm_year:70[times:59]
+Waiting for system time to be set... tm_year:70[times:60]
+Waiting for system time to be set... tm_year:70[times:61]
+Waiting for system time to be set... tm_year:70[times:62]
